@@ -48,99 +48,128 @@ function signupTemplate() {
     return `
         <style>
             .signup-container {
-                max-width: 500px;
-                margin: 2rem auto;
-                background-color: #ffffff;
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                max-width: 850px;
+                margin: 3rem auto;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
                 padding: 2rem;
+                font-family: Arial, sans-serif;
             }
             .signup-container h2 {
                 text-align: center;
-                color: #2c3e50;
+                color: #0a66c2;
+                font-size: 1.8rem;
                 margin-bottom: 1.5rem;
-                font-weight: 600;
+                font-weight: bold;
             }
             .form-group {
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
             }
             .form-group label {
                 display: block;
                 margin-bottom: 0.5rem;
-                color: #34495e;
-                font-weight: 500;
+                color: #4a4a4a;
+                font-size: 0.95rem;
             }
-            .form-group input, 
+            .form-group input,
             .form-group textarea {
                 width: 100%;
-                padding: 0.75rem;
-                border: 1px solid #bdc3c7;
+                padding: 0.8rem;
+                border: 1px solid #d1d1d1;
                 border-radius: 6px;
+                font-size: 0.95rem;
                 transition: all 0.3s ease;
             }
             .form-group input:focus,
             .form-group textarea:focus {
                 outline: none;
-                border-color: #3498db;
-                box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+                border-color: #0a66c2;
+                box-shadow: 0 0 4px rgba(10, 102, 194, 0.3);
             }
             button {
                 width: 100%;
-                padding: 0.75rem;
-                background-color: #3498db;
+                padding: 0.9rem;
+                background-color: #0a66c2;
                 color: white;
                 border: none;
                 border-radius: 6px;
+                font-size: 1rem;
+                font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
             }
             button:hover {
-                background-color: #2980b9;
+                background-color: #004182;
+            }
+            .logo {
+                display: block;
+                margin: 0 auto 1rem auto;
+                width: 50px;
+                height: auto;
+            }
+            .form-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            .form-column {
+                flex: 1;
+                min-width: 300px;
             }
             .login-link {
                 text-align: center;
                 margin-top: 1rem;
-                color: #7f8c8d;
+                color: #4a4a4a;
+                font-size: 0.95rem;
             }
             .login-link a {
-                color: #3498db;
+                color: #0a66c2;
                 text-decoration: none;
+                font-weight: bold;
             }
         </style>
         <div class="signup-container">
-            <h2>Sign Up</h2>
+            <img class="logo" src="https://pngimg.com/uploads/letter_j/letter_j_PNG29.png" alt="Logo">
+            <h2>Create Your Account</h2>
             <form id="signupForm">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Age</label>
-                    <input type="number" id="age" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Institution</label>
-                    <input type="text" id="institution" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <textarea id="address" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>About Myself</label>
-                    <textarea id="about" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" id="confirmPassword" required>
+                <div class="form-wrapper">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="institution">Institution</label>
+                            <input type="text" id="institution" placeholder="Enter your institution" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter a password" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" placeholder="Enter your age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input id="address" placeholder="Enter your address" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="about">About Myself</label>
+                            <input id="about" placeholder="Write something about yourself" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit">Sign Up</button>
             </form>
@@ -154,72 +183,86 @@ function loginTemplate() {
         <style>
             .login-container {
                 max-width: 400px;
-                margin: 2rem auto;
-                background-color: #ffffff;
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                margin: 3rem auto;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
                 padding: 2rem;
+                font-family: Arial, sans-serif;
             }
             .login-container h2 {
                 text-align: center;
-                color: #2c3e50;
+                color: #0a66c2;
+                font-size: 1.8rem;
                 margin-bottom: 1.5rem;
-                font-weight: 600;
+                font-weight: bold;
             }
             .form-group {
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
             }
             .form-group label {
                 display: block;
                 margin-bottom: 0.5rem;
-                color: #34495e;
-                font-weight: 500;
+                color: #4a4a4a;
+                font-size: 0.95rem;
             }
             .form-group input {
                 width: 100%;
-                padding: 0.75rem;
-                border: 1px solid #bdc3c7;
+                padding: 0.8rem;
+                border: 1px solid #d1d1d1;
                 border-radius: 6px;
+                font-size: 0.95rem;
                 transition: all 0.3s ease;
             }
             .form-group input:focus {
                 outline: none;
-                border-color: #3498db;
-                box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+                border-color: #0a66c2;
+                box-shadow: 0 0 4px rgba(10, 102, 194, 0.3);
             }
             button {
                 width: 100%;
-                padding: 0.75rem;
-                background-color: #3498db;
+                padding: 0.9rem;
+                background-color: #0a66c2;
                 color: white;
                 border: none;
                 border-radius: 6px;
+                font-size: 1rem;
+                font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
             }
             button:hover {
-                background-color: #2980b9;
+                background-color: #004182;
+            }
+            .logo {
+                display: block;
+                margin: 0 auto 1rem auto;
+                width: 50px;
+                height: auto;
             }
             .signup-link {
                 text-align: center;
                 margin-top: 1rem;
-                color: #7f8c8d;
+                color: #4a4a4a;
+                font-size: 0.95rem;
             }
             .signup-link a {
-                color: #3498db;
+                color: #0a66c2;
                 text-decoration: none;
+                font-weight: bold;
             }
         </style>
         <div class="login-container">
-            <h2>Login</h2>
+            <img class="logo" src="https://pngimg.com/uploads/letter_j/letter_j_PNG29.png" alt="Logo">
+            <h2>Login to Your Account</h2>
             <form id="loginForm">
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="loginEmail" required>
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="loginPassword" required>
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
                 </div>
                 <button type="submit">Login</button>
             </form>
@@ -231,21 +274,30 @@ function loginTemplate() {
 function mainTemplate() {
     return `
         <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #ecf0f1;
+                color: #2c3e50;
+            }
             .navbar {
-                background-color: #2c3e50 !important;
+                background-color: #0073b1;
                 padding: 1rem;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                color: white;
             }
             .navbar ul {
                 display: flex;
                 justify-content: center;
                 list-style: none;
-                gap: 2rem;
                 margin: 0;
                 padding: 0;
+                gap: 2rem;
+            }
+            .navbar ul li {
+                display: inline-block;
             }
             .navbar ul li a {
-                color: white !important;
+                color: white;
                 text-decoration: none;
                 font-weight: 600;
                 text-transform: uppercase;
@@ -253,28 +305,34 @@ function mainTemplate() {
                 transition: color 0.3s ease;
             }
             .navbar ul li a:hover {
-                color: #3498db !important;
+                color: #3498db;
             }
             .job-container {
                 max-width: 800px;
                 margin: 2rem auto;
-                padding: 1rem;
-                background-color: #f4f7f6;
+                padding: 1.5rem;
+                background-color: white;
                 border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                transition: box-shadow 0.3s ease;
+            }
+            .job-container:hover {
+                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
             }
             .job-list h2 {
                 text-align: center;
-                color: #2c3e50;
+                color: #0073b1;
                 margin-bottom: 1.5rem;
+                font-size: 1.4rem;
             }
             .search-container {
                 display: flex;
-                margin-bottom: 1.5rem;
                 gap: 1rem;
+                margin-bottom: 1.5rem;
             }
             .search-input {
                 flex-grow: 1;
-                padding: 0.75rem;
+                padding: 0.8rem;
                 border: 1px solid #bdc3c7;
                 border-radius: 6px;
                 transition: all 0.3s ease;
@@ -289,28 +347,86 @@ function mainTemplate() {
                 border-radius: 8px;
                 padding: 1.5rem;
                 margin-bottom: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
             }
             .job-card:hover {
                 transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
             }
             .job-card h3 {
-                color: #3498db;
+                color: #0073b1;
                 margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+            }
+            .job-card p {
+                color: #7f8c8d;
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+            .job-card img {
+                max-width: 100%;
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+                height: 50px;
             }
             .job-card button {
-                background-color: #2ecc71;
+                background-color: #28a745;
                 color: white;
                 border: none;
-                padding: 0.5rem 1rem;
+                padding: 0.6rem 1.2rem;
                 border-radius: 6px;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
                 margin-top: 1rem;
+                font-size: 1rem;
             }
             .job-card button:hover {
-                background-color: #27ae60;
+                background-color: #218838;
+            }
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+                width: 90%;
+                max-width: 500px;
+                padding: 2rem;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            .popup-header {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            .popup-close {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                cursor: pointer;
+                color: #7f8c8d;
+            }
+            .popup-content {
+                color: #2c3e50;
+            }
+            .popup button {
+                background-color: #0073b1;
+                color: white;
+                border: none;
+                padding: 0.6rem 1.2rem;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 1rem;
+                font-size: 1rem;
+            }
+            .popup button:hover {
+                background-color: #005f8a;
             }
         </style>
         <nav class="navbar">
@@ -334,30 +450,90 @@ function mainTemplate() {
                 </div>
                 <div id="jobsList">
                     <!-- Jobs will be listed here -->
+                    <div class="job-card" data-job-id="1">
+                        <h3>Software Engineer</h3>
+                        <img src="path_to_image1.jpg" alt="Google Logo">
+                        <p>Google - Mountain View, CA</p>
+                        <button onclick="openPopup(1)">View Details</button>
+                    </div>
+                    <div class="job-card" data-job-id="2">
+                        <h3>Data Analyst</h3>
+                        <img src="path_to_image2.jpg" alt="Facebook Logo">
+                        <p>Facebook - Menlo Park, CA</p>
+                        <button onclick="openPopup(2)">View Details</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="popup" id="popup">
+            <div class="popup-header">
+                Job Details
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+            </div>
+            <div class="popup-content">
+                <!-- Job details will be dynamically inserted here -->
+            </div>
+            <button onclick="applyJob()">Apply Now</button>
+        </div>
     `;
+}
+
+function openPopup(jobId) {
+    // Show the popup and load job details (mock data for now)
+    const popup = document.getElementById('popup');
+    const popupContent = popup.querySelector('.popup-content');
+    
+    if (jobId === 1) {
+        popupContent.innerHTML = `
+            <h3>Software Engineer at Google</h3>
+            <p>Location: Mountain View, CA</p>
+            <p>Salary: $120,000 - $140,000</p>
+            <p>Requirements: 3+ years experience in software development, proficiency in JavaScript, and familiarity with cloud technologies.</p>
+        `;
+    } else if (jobId === 2) {
+        popupContent.innerHTML = `
+            <h3>Data Analyst at Facebook</h3>
+            <p>Location: Menlo Park, CA</p>
+            <p>Salary: $100,000 - $120,000</p>
+            <p>Requirements: Strong analytical skills, proficiency in SQL and Python, and experience with data visualization tools.</p>
+        `;
+    }
+
+    popup.style.display = 'block';
+}
+
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
 }
 
 function appliedTemplate() {
     return `
         <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #ecf0f1;
+                color: #2c3e50;
+                margin: 0;
+                padding: 0;
+            }
+
             .navbar {
-                background-color: #2c3e50 !important;
+                background-color: #0073b1;
                 padding: 1rem;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                color: white;
             }
             .navbar ul {
                 display: flex;
                 justify-content: center;
                 list-style: none;
-                gap: 2rem;
                 margin: 0;
                 padding: 0;
+                gap: 2rem;
             }
             .navbar ul li a {
-                color: white !important;
+                color: white;
                 text-decoration: none;
                 font-weight: 600;
                 text-transform: uppercase;
@@ -365,34 +541,71 @@ function appliedTemplate() {
                 transition: color 0.3s ease;
             }
             .navbar ul li a:hover {
-                color: #3498db !important;
+                color: #3498db;
             }
             .applied-container {
                 max-width: 800px;
                 margin: 2rem auto;
-                padding: 1rem;
-                background-color: #f4f7f6;
+                padding: 1.5rem;
+                background-color: white;
                 border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+            }
+            .applied-container:hover {
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             }
             .applied-list h2 {
                 text-align: center;
-                color: #2c3e50;
+                color: #0073b1;
                 margin-bottom: 1.5rem;
+                font-size: 1.6rem;
             }
             .job-card {
                 background-color: white;
                 border-radius: 8px;
                 padding: 1.5rem;
                 margin-bottom: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 transition: transform 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .job-card:hover {
                 transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             }
             .job-card h3 {
-                color: #3498db;
+                color: #0073b1;
                 margin-bottom: 0.5rem;
+                font-size: 1.4rem;
+            }
+            .job-card p {
+                color: #7f8c8d;
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+            .job-logo {
+                max-width: 80%;
+                height: 80px;
+                border-radius: 4px;
+                margin-bottom: 1rem;
+                object-fit: contain;
+            }
+            .job-card button {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                padding: 0.6rem 1.2rem;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 1rem;
+                font-size: 1rem;
+            }
+            .job-card button:hover {
+                background-color: #c0392b;
             }
         </style>
         <nav class="navbar">
@@ -407,11 +620,74 @@ function appliedTemplate() {
             <div class="applied-list">
                 <h2>Applied Jobs</h2>
                 <div id="appliedJobsList">
-                    <!-- Applied jobs will be listed here -->
+                    <!-- Applied jobs will be dynamically loaded here -->
                 </div>
             </div>
         </div>
     `;
+}
+
+function loadAppliedJobs() {
+    const email = localStorage.getItem('userEmail');
+    if (!email) {
+        showAlert('User email is not found. Please log in again.', 'error');
+        return;
+    }
+
+    fetch(`${API_URL}/applied-jobs/?email=${encodeURIComponent(email)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch applied jobs.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const appliedJobsList = document.getElementById('appliedJobsList');
+
+            if (data.status === 'success' && data.job_ids) {
+                const jobIds = data.job_ids;
+                const appliedJobs = jobs.filter(job => jobIds.includes(job.id.toString()));
+
+                if (appliedJobs.length === 0) {
+                    appliedJobsList.innerHTML = `
+                        <div>
+                            <h3>You haven't applied to any jobs yet.</h3>
+                        </div>
+                    `;
+                    return;
+                }
+
+                appliedJobsList.innerHTML = appliedJobs
+                    .map(
+                        job => `
+                    <div class="job-card">
+                        <img src="${job.logo}" alt="${job.company} Logo" class="job-logo" />
+                        <h3>${job.title}</h3>
+                        <p><strong>Company:</strong> ${job.company}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>Type:</strong> ${job.jobType}</p>
+                        <p><strong>Experience Required:</strong> ${job.experienceRequired}</p>
+                        <button onclick="unapplyJob(${job.id})">Withdraw Application</button>
+                    </div>
+                `
+                    )
+                    .join('');
+            } else {
+                appliedJobsList.innerHTML = `
+                    <div>
+                        <h3>Error loading applied jobs: ${data.message || 'Unknown error occurred.'}</h3>
+                    </div>
+                `;
+            }
+        })
+        .catch(error => {
+            const appliedJobsList = document.getElementById('appliedJobsList');
+            appliedJobsList.innerHTML = `
+                <div>
+                    <h3>Failed to load applied jobs. Please try again later.</h3>
+                </div>
+            `;
+        });
 }
 
 function profileTemplate() {
@@ -578,7 +854,7 @@ async function handleSignup(e) {
             showAlert(data.message, 'error');
         }
     } catch (error) {
-        showAlert('An error occurred', 'error');
+        showAlert('Please check your internet Connection', 'error')
     }
 }
 
@@ -608,7 +884,7 @@ async function handleLogin(e) {
             showAlert(data.message, 'error');
         }
     } catch (error) {
-        showAlert('An error occurred', 'error');
+        showAlert('Please check your internet Connection', 'error')
     }
 }
 
@@ -622,6 +898,7 @@ const jobs = [
         skills: ["JavaScript", "React", "Node.js"],
         jobType: "Full-Time",
         experienceRequired: "2+ years",
+        logo: "https://r2.erweima.ai/imgcompressed/img/compressed_f0944f47a497631540d17712999f9395.webp"
     },
     {
         id: 2,
@@ -632,6 +909,7 @@ const jobs = [
         skills: ["SQL", "Python", "Tableau"],
         jobType: "Part-Time",
         experienceRequired: "1+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSQ2eANJHlwGsmgUsmDp6UoAS-gN3N291wbg&s"
     },
     {
         id: 3,
@@ -642,6 +920,7 @@ const jobs = [
         skills: ["Leadership", "Agile", "Scrum"],
         jobType: "Contract",
         experienceRequired: "5+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvb9bjZ3x4Xi7Z4Pt4Og3C8x3ucWXpY94Hw&s"
     },
     {
         id: 4,
@@ -652,6 +931,7 @@ const jobs = [
         skills: ["Figma", "Sketch", "Wireframing"],
         jobType: "Full-Time",
         experienceRequired: "3+ years",
+        logo: "https://logopond.com/logos/8c8ae172cf0b9181768c5c0c5499277c.png"
     },
     {
         id: 5,
@@ -662,6 +942,7 @@ const jobs = [
         skills: ["Java", "Spring Boot", "SQL"],
         jobType: "Full-Time",
         experienceRequired: "2+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw4WmZWH_cEYPl6rYI_MnN4mZGaHwVRMobHw&s"
     },
     {
         id: 6,
@@ -672,6 +953,7 @@ const jobs = [
         skills: ["AWS", "Azure", "Terraform"],
         jobType: "Full-Time",
         experienceRequired: "4+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsdiPGvL5aEUKBTY51v6ugjxAnccAPGpf9vg&s"
     },
     {
         id: 7,
@@ -682,6 +964,7 @@ const jobs = [
         skills: ["HTML", "CSS", "JavaScript"],
         jobType: "Full-Time",
         experienceRequired: "2+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnwdBDiNGHtNuKKjaweDUIDPqHXjwVCuRCA&s"
     },
     {
         id: 8,
@@ -692,6 +975,7 @@ const jobs = [
         skills: ["Jenkins", "Docker", "Kubernetes"],
         jobType: "Full-Time",
         experienceRequired: "3+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT911mBNFIuQc0-EwW97I023BPLxRJAC64o3w&s"
     },
     {
         id: 9,
@@ -702,6 +986,7 @@ const jobs = [
         skills: ["Selenium", "JUnit", "Bug Tracking"],
         jobType: "Part-Time",
         experienceRequired: "1+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNvMAXaP2rWo1XaaOiElICHF8rJoxEahnOg&s"
     },
     {
         id: 10,
@@ -712,6 +997,7 @@ const jobs = [
         skills: ["TensorFlow", "PyTorch", "NLP"],
         jobType: "Contract",
         experienceRequired: "5+ years",
+        logo: "https://campaignme.com/wp-content/uploads/2019/05/Futuretech-Logo-02.png"
     },
     {
         id: 11,
@@ -722,6 +1008,7 @@ const jobs = [
         skills: ["Firewalls", "Penetration Testing", "SIEM"],
         jobType: "Full-Time",
         experienceRequired: "3+ years",
+        logo: "https://media.licdn.com/dms/image/v2/C4E0BAQG-d666wuoxcA/company-logo_200_200/company-logo_200_200/0/1630590022883/secureops_logo?e=2147483647&v=beta&t=3H_twRW5ekHxVQdbqLeo1dWaDSAnnQzL7nY1MsxaIWM"
     },
     {
         id: 12,
@@ -732,6 +1019,7 @@ const jobs = [
         skills: ["Kotlin", "Swift", "React Native"],
         jobType: "Full-Time",
         experienceRequired: "2+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYknLvZo8CBot0b3mMXni8ikauHrMDVSF9mg&s"
     },
     {
         id: 13,
@@ -742,6 +1030,7 @@ const jobs = [
         skills: ["SQL", "Oracle", "MongoDB"],
         jobType: "Full-Time",
         experienceRequired: "4+ years",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQEFqhJemF4ASA/company-logo_200_200/company-logo_200_200/0/1719820255433/dataguard1_logo?e=2147483647&v=beta&t=AhyMAEqBvN54AxAMj0Mb5qRPIG5-r_k_f4C-i7V1758"
     },
     {
         id: 14,
@@ -752,6 +1041,7 @@ const jobs = [
         skills: ["Python", "Pandas", "Scikit-learn"],
         jobType: "Contract",
         experienceRequired: "3+ years",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVBy-wjTO9s6G7STijn-ZWM4scpUdy_bRg7w&s"
     },
     {
         id: 15,
@@ -762,8 +1052,10 @@ const jobs = [
         skills: ["Routing", "Switching", "Firewalls"],
         jobType: "Full-Time",
         experienceRequired: "3+ years",
+        logo: "https://logopond.com/logos/e45eb5cb06bb425e5a2eb812647745c5.png"
     },
 ];
+
 
 async function loadProfile() {
     try {
@@ -978,6 +1270,7 @@ async function loadJobs() {
                 return `
                 <div class="job-card">
                     <h3>${job.title}</h3>
+                    <img src="${job.logo}" alt="${job.company} Logo" class="job-logo" />
                     <p><strong>Company:</strong> ${job.company}</p>
                     <p><strong>Location:</strong> ${job.location}</p>
                     <p><strong>Type:</strong> ${job.jobType}</p>
@@ -994,8 +1287,10 @@ async function loadJobs() {
             jobsList.innerHTML = renderedJobs.join("");
         }
 
+        // Initial rendering of jobs
         await renderJobs(data.jobs);
 
+        // Search functionality
         searchInput.addEventListener('input', async (e) => {
             const searchTerm = e.target.value.toLowerCase().trim();
             
@@ -1008,62 +1303,119 @@ async function loadJobs() {
         });
 
     } catch (error) {
-        if(jobsList.length() == 0){
-
-        }
-        else{
-            showAlert('An error occurred', 'error');
-        }
+        showAlert('An error occurred while loading jobs. Please try again later.', 'error');
     }
 }
 
+
 function applyJob(jobId) {
-    const applyButton = document.querySelector(`[data-job-id="${jobId}"]`);
-    
-    if (applyButton) {
-      applyButton.disabled = true;
-      applyButton.textContent = 'Applying...';
-    }
-  
-    fetch(`${API_URL}/apply/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        job_id: jobId,
-        email: localStorage.getItem('userEmail')
-      }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === 'success') {
-        showAlert('Job applied successfully!', 'success');
-        
-        // Update button to show 'Applied' state
-        if (applyButton) {
-          applyButton.textContent = 'Applied';
-          applyButton.classList.add('applied');
-        }
-        
-        loadJobs(); // Refresh the jobs list
-      } else {
-        // Revert button state on failure
-        if (applyButton) {
-          applyButton.disabled = false;
-          applyButton.textContent = 'Apply';
-        }
-        showAlert(data.message, 'error');
-      }
-    })
-    .catch(error => {
-      // Revert button state on error
-      if (applyButton) {
-        applyButton.disabled = false;
-        applyButton.textContent = 'Apply';
-      }
-      showAlert('An error occurred', 'error');
+    // Create a modal for resume link input
+    const modal = document.createElement('div');
+    modal.innerHTML = `
+        <div class="modal" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        ">
+            <div class="modal-content" style="
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                width: 400px;
+                text-align: center;
+            ">
+                <h2>Apply for Job</h2>
+                <p>Please provide a link to your resume</p>
+                <input 
+                    type="url" 
+                    id="resumeLink" 
+                    placeholder="Enter resume link (e.g., Google Drive, Dropbox)" 
+                    style="width: 100%; padding: 10px; margin: 10px 0;"
+                    required
+                >
+                <div>
+                    <button id="submitApplication" style="
+                        background-color: #4CAF50;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        margin-right: 10px;
+                        border-radius: 5px;
+                    ">Submit</button>
+                    <button id="cancelApplication" style="
+                        background-color: #f44336;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                    ">Cancel</button>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const resumeInput = modal.querySelector('#resumeLink');
+    const submitButton = modal.querySelector('#submitApplication');
+    const cancelButton = modal.querySelector('#cancelApplication');
+
+    // Cancel button closes the modal
+    cancelButton.addEventListener('click', () => {
+        document.body.removeChild(modal);
     });
+
+    // Submit button sends application
+    submitButton.addEventListener('click', () => {
+        const resumeLink = resumeInput.value.trim();
+        
+        // Basic URL validation
+        if (!resumeLink || !(resumeLink.startsWith('http://') || resumeLink.startsWith('https://'))) {
+            showAlert('Please enter a valid resume link', 'error');
+            return;
+        }
+
+        // Disable submit button to prevent multiple submissions
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+
+        fetch(`${API_URL}/apply/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                job_id: jobId,
+                email: localStorage.getItem('userEmail'),
+                resume_link: resumeLink
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Remove modal
+            document.body.removeChild(modal);
+
+            if (data.status === 'success') {
+                showAlert('Job applied successfully!', 'success');
+                loadJobs(); // Refresh the jobs list
+            } else {
+                showAlert(data.message, 'error');
+            }
+        })
+        .catch(error => {
+            // Remove modal
+            document.body.removeChild(modal);
+            showAlert('An error occurred', 'error');
+        });
+    });
+    closePopup();
+
 }
   
 async function renderJobs(jobsToRender) {
@@ -1112,52 +1464,10 @@ function unapplyJob(jobId) {
         }
     })
     .catch(error => {
-        showAlert('An error occurred', 'error');
     });
 }
 
-function loadAppliedJobs() {
-    const email = localStorage.getItem('userEmail');
-    fetch(`${API_URL}/applied-jobs/?email=${email}`)
-        .then(response => response.json())
-        .then(data => {
-            const appliedJobsList = document.getElementById('appliedJobsList');
-            
-            if (data.status === 'success') {
-                const jobIds = data.job_ids;
-                const appliedJobs = jobs.filter(job => jobIds.includes(job.id.toString()));
 
-                if (appliedJobs.length === 0) {
-                    appliedJobsList.innerHTML = `
-                        <div>
-                            <h3>User Haven't applied to any jobs yet<h3>
-                        </div>
-                    `;
-                    return;
-                }
-
-                appliedJobsList.innerHTML = appliedJobs
-                    .map(
-                        job => `
-                    <div class="job-card">
-                        <h3>${job.title}</h3>
-                        <p><strong>Company:</strong> ${job.company}</p>
-                        <p><strong>Location:</strong> ${job.location}</p>
-                        <p><strong>Type:</strong> ${job.jobType}</p>
-                        <p><strong>Experience Required:</strong> ${job.experienceRequired}</p>
-                        <button onclick="unapplyJob(${job.id})">Unapply</button>
-                    </div>
-                `
-                    )
-                    .join('');
-            } else {
-                showAlert(data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showAlert('Error loading applied jobs', 'error');
-        });
-}
 
 window.unapplyJob = unapplyJob;
 
