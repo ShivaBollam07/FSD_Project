@@ -478,34 +478,6 @@ function mainTemplate() {
     `;
 }
 
-function openPopup(jobId) {
-    // Show the popup and load job details (mock data for now)
-    const popup = document.getElementById('popup');
-    const popupContent = popup.querySelector('.popup-content');
-    
-    if (jobId === 1) {
-        popupContent.innerHTML = `
-            <h3>Software Engineer at Google</h3>
-            <p>Location: Mountain View, CA</p>
-            <p>Salary: $120,000 - $140,000</p>
-            <p>Requirements: 3+ years experience in software development, proficiency in JavaScript, and familiarity with cloud technologies.</p>
-        `;
-    } else if (jobId === 2) {
-        popupContent.innerHTML = `
-            <h3>Data Analyst at Facebook</h3>
-            <p>Location: Menlo Park, CA</p>
-            <p>Salary: $100,000 - $120,000</p>
-            <p>Requirements: Strong analytical skills, proficiency in SQL and Python, and experience with data visualization tools.</p>
-        `;
-    }
-
-    popup.style.display = 'block';
-}
-
-function closePopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'none';
-}
 
 function appliedTemplate() {
     return `
@@ -674,9 +646,7 @@ function loadAppliedJobs() {
                     .join('');
             } else {
                 appliedJobsList.innerHTML = `
-                    <div>
-                        <h3>Error loading applied jobs: ${data.message || 'Unknown error occurred.'}</h3>
-                    </div>
+                    
                 `;
             }
         })
@@ -1307,9 +1277,7 @@ async function loadJobs() {
     }
 }
 
-
 function applyJob(jobId) {
-    // Create a modal for resume link input
     const modal = document.createElement('div');
     modal.innerHTML = `
         <div class="modal" style="
@@ -1403,46 +1371,18 @@ function applyJob(jobId) {
 
             if (data.status === 'success') {
                 showAlert('Job applied successfully!', 'success');
-                loadJobs(); // Refresh the jobs list
+                loadJobs(); 
             } else {
                 showAlert(data.message, 'error');
             }
         })
         .catch(error => {
-            // Remove modal
             document.body.removeChild(modal);
             showAlert('An error occurred', 'error');
         });
     });
     closePopup();
 
-}
-  
-async function renderJobs(jobsToRender) {
-    const renderedJobs = await Promise.all(jobsToRender.map(async (job) => {
-      const isApplied = await checkJobApplicationStatus(job.id);
-      
-      return `
-        <div class="job-card">
-          <h3>${job.title}</h3>
-          <p><strong>Company:</strong> ${job.company}</p>
-          <p><strong>Location:</strong> ${job.location}</p>
-          <p><strong>Type:</strong> ${job.jobType}</p>
-          <p><strong>Experience Required:</strong> ${job.experienceRequired}</p>
-          <p><strong>Skills:</strong> ${job.skills.join(", ")}</p>
-          <p>${job.description}</p>
-          <button 
-            data-job-id="${job.id}" 
-            onclick="applyJob(${job.id})"
-            ${isApplied ? 'disabled class="applied"' : ''}
-          >
-            ${isApplied ? 'Applied' : 'Apply'}
-          </button>
-        </div>
-      `;
-    }));
-    
-    jobsList.innerHTML = renderedJobs.join("");
 }
 
 function unapplyJob(jobId) {
@@ -1457,8 +1397,8 @@ function unapplyJob(jobId) {
     .then(data => {
         if (data.status === 'success') {
             showAlert('Job unapplied successfully!', 'success');
-            loadAppliedJobs(); // Refresh the applied jobs list
-            loadJobs(); // Refresh the main jobs list to update apply/unapply buttons
+            loadAppliedJobs();
+            loadJobs(); 
         } else {
             showAlert(data.message, 'error');
         }
@@ -1467,16 +1407,12 @@ function unapplyJob(jobId) {
     });
 }
 
-
-
 window.unapplyJob = unapplyJob;
 
 function showAlert(message, type) {
     const alertBox = document.createElement('div');
     alertBox.className = `alert ${type}`;
     alertBox.textContent = message;
-
-    // Add inline styles
     alertBox.style.position = 'fixed';
     alertBox.style.bottom = '20px';
     alertBox.style.right = '20px';
